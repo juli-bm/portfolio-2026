@@ -1,0 +1,358 @@
+/* ============================================================
+   PORTFOLIO 2026 — JULIETTE MOUILLAC (creative)
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root {
+  --ink: #2b2620;
+  --muted: #6b6155;
+  --surface: rgba(255, 255, 255, 0.55);
+  --surface-solid: #fffaf0;
+
+  --font-display: 'Abril Fatface', serif;
+  --font-banner: 'Bebas Neue', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+}
+
+body {
+  color: var(--ink);
+  font-family: var(--font-body);
+  background: linear-gradient(
+    180deg,
+    #eef1ec 0%,
+    #e7ecef 6%,
+    #dbe6f2 14%,
+    #cfe0f5 20%,
+    #d2d3ee 28%,
+    #ddd0ea 34%,
+    #e8cfe6 40%,
+    #f1cfe0 46%,
+    #f7d6d6 52%,
+    #f9e0cf 58%,
+    #fbedc9 64%,
+    #fcf4d2 68%,
+    #f9e9c7 74%,
+    #f6dccb 80%,
+    #f3cfda 88%,
+    #f6d7e2 94%,
+    #f4e3e6 100%
+  );
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ---------- Nav ---------- */
+
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  padding: 1.5rem;
+  position: relative;
+  z-index: 10;
+}
+
+nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  background: var(--surface);
+  backdrop-filter: blur(6px);
+  border-radius: 999px;
+  padding: 0.6rem 1.6rem;
+  box-shadow: 0 4px 18px -6px rgba(60, 40, 30, 0.15);
+}
+
+nav a {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+nav a:hover {
+  color: #b7457a;
+}
+
+#dsfr-link {
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
+  z-index: 11;
+  background: var(--surface);
+  backdrop-filter: blur(6px);
+  border-radius: 999px;
+  padding: 0.6rem 1.1rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  box-shadow: 0 4px 18px -6px rgba(60, 40, 30, 0.15);
+}
+
+#dsfr-link:hover {
+  color: #b7457a;
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(1rem, 6vw, 5rem);
+  padding: 2rem 1.5rem 4rem;
+  text-align: center;
+}
+
+.hero-flower {
+  flex: 0 0 auto;
+  width: clamp(90px, 14vw, 170px);
+  filter: drop-shadow(0 10px 20px rgba(60, 30, 20, 0.15));
+}
+
+.hero-text h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 3.2rem);
+  line-height: 1.15;
+}
+
+.hero-text p {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 1.05rem;
+  max-width: 26rem;
+}
+
+.hero-actions {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  border: 1.5px solid var(--ink);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px -8px rgba(60, 30, 20, 0.35);
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: #fff8ec;
+  border-color: var(--ink);
+}
+
+.btn-outline {
+  background: var(--surface);
+  border-color: rgba(43, 38, 32, 0.35);
+}
+
+/* ---------- Section headers ---------- */
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+#projects {
+  padding: 2rem 0 3rem;
+}
+
+/* ---------- Project rows ---------- */
+
+.project-row {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.5rem, 6vw, 4rem);
+  padding: 2.5rem 1.5rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.project-row.reverse {
+  flex-direction: row-reverse;
+}
+
+.project-flower {
+  flex: 0 0 auto;
+  width: clamp(110px, 16vw, 190px);
+  filter: drop-shadow(0 10px 22px rgba(60, 30, 20, 0.16));
+}
+
+.project-content {
+  flex: 1 1 420px;
+  min-width: 0;
+}
+
+.project-num {
+  font-family: var(--font-banner);
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  color: #b7457a;
+}
+
+.project-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  margin: 0.35rem 0 0.75rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.project-tags span {
+  background: var(--surface);
+  border-radius: 999px;
+  padding: 0.25rem 0.8rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.project-desc-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.35rem;
+}
+
+.project-desc {
+  color: var(--ink);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.project-media {
+  position: relative;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 16px 34px -14px rgba(60, 30, 20, 0.3);
+  margin-bottom: 1.25rem;
+  background: var(--surface-solid);
+}
+
+.project-media img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: top;
+  display: block;
+}
+
+/* ---------- About ---------- */
+
+#about {
+  padding: 3rem 1.5rem 5rem;
+  text-align: center;
+}
+
+#about .about-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 2rem;
+  box-shadow: 0 14px 30px -12px rgba(60, 30, 20, 0.3);
+  border: 4px solid var(--surface-solid);
+}
+
+#about p.about-text {
+  max-width: 34rem;
+  margin: 0 auto 0.9rem;
+  color: var(--ink);
+  line-height: 1.7;
+}
+
+.about-links {
+  margin-top: 1.75rem;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.about-links a {
+  background: var(--surface);
+  border-radius: 999px;
+  padding: 0.6rem 1.25rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  box-shadow: 0 4px 16px -8px rgba(60, 30, 20, 0.25);
+  transition: transform 0.2s ease;
+}
+
+.about-links a:hover {
+  transform: translateY(-2px);
+  color: #b7457a;
+}
+
+/* ---------- Footer ---------- */
+
+footer {
+  text-align: center;
+  padding: 2rem 1.5rem 3rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 720px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  .project-row,
+  .project-row.reverse {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .project-tags {
+    justify-content: center;
+  }
+
+  #dsfr-link {
+    position: static;
+    margin: 0 auto 0.5rem;
+    display: table;
+  }
+}
