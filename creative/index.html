@@ -11,6 +11,8 @@
 </head>
 <body>
 
+<div class="pollen-layer" aria-hidden="true"></div>
+
 <a id="dsfr-link" href="dsfr/" aria-label="Voir la version DSFR de mon portfolio">🏛️ Version DSFR</a>
 
 <nav>
@@ -85,8 +87,10 @@
 <section id="projects">
   <h2 class="section-title">Projets</h2>
 
+  <div class="catalogue-viewport">
+
   <!-- 01 Scrappy — aster bleu -->
-  <div id="project-01" class="project-row">
+  <div id="project-01" class="project-row active" data-color="#257CD0">
     <svg class="project-flower" viewBox="0 0 300 297" fill="none" aria-hidden="true">
       <path d="M134.855 26.2015C136.277 22.2781 145.421 -6.58744 153.317 1.38566C157.612 5.72233 164.461 22.6159 165.063 29.0704C169.203 22.7461 192.335 3.31315 196.581 15.4994C201.513 29.6538 189.397 58.875 184.65 72.0747L174.041 101.274C178.766 94.9297 182.961 87.393 187.369 80.7269C194.88 69.368 202.375 57.8382 210.557 46.9586C214.643 41.5217 218.828 36.0946 223.691 31.3752C227.062 28.1039 233.928 23.8619 237.449 29.2554C242.604 37.1522 241.044 51.2769 240.189 60.1938C241.238 59.7172 242.403 59.2914 243.52 58.9802C284.943 47.443 275.071 60.2129 257.754 87.2718C265.772 87.4974 274.998 87.4497 282.511 90.624C284.7 91.5506 286.989 93.0105 287.853 95.3758C288.655 97.5641 288.154 100.123 287.155 102.156C278.949 118.847 226.084 132.388 208.063 138.266C213.79 137.976 219.743 136.638 225.547 135.919C245.178 133.486 270.354 128.455 289.792 131.801C311.87 135.6 282.395 156.301 275.345 160.571C278.656 162.575 305.761 178.508 298.888 183.419C292.814 187.761 273.345 190.79 265.569 190.631C270.916 196.769 276.313 204.002 279.454 211.596C280.587 214.326 281.582 217.762 280.287 220.612C279.489 222.365 277.989 223.561 276.205 224.162C258.683 230.062 207.473 193.799 189.615 184.919C203.948 196.502 245.149 233.138 249.536 250.254C249.986 252.01 250.143 254.046 249.126 255.637C248.239 257.024 246.692 257.719 245.158 258.083C237.232 259.96 224.763 257.163 217.967 252.892C218.297 259.51 219.29 267.306 219.472 273.864C220.005 293.076 214.606 291.532 202.406 280.177C197.689 275.787 192.173 271.024 187.598 266.112C187.537 270.442 186.925 274.089 185.769 278.127C176.453 310.659 165.325 295.692 156.749 273.962C155.976 272.002 154.907 268.619 153.993 266.567L153.866 266.287C153.583 253.73 147.697 230.658 143.762 218.714C143.351 220.632 141.982 230.969 141.737 233.009C140.989 239.242 133.318 273.862 133.67 277.4C133.61 279.586 126.951 291.675 125.555 293.346C113.366 307.939 103.539 272.389 103.142 265.981C101.348 268.357 99.2223 271.162 97.1802 273.291C65.0461 306.788 73.6019 274.589 76.5344 251.881C67.7562 254.284 58.8759 257.942 49.5993 257.505C47.6689 257.414 44.7738 257.171 43.4402 255.584C42.3598 254.299 42.0996 252.56 42.2796 250.924C44.3853 231.79 87.2869 197.857 102.163 185.479C82.7868 194.118 40.6002 222.246 20.5021 220.675C18.3093 220.504 15.3687 219.857 13.9352 218.01C12.6682 216.378 12.5164 214.156 12.7974 212.169C13.7425 205.496 22.7562 191.141 27.9131 187.249C20.9689 185.263 4.97392 184.214 0.846919 179.168C-4.93828 172.094 20.6609 158.69 24.7925 155.977C18.4596 151.799 11.9914 146.732 6.94318 140.995C4.89683 138.669 1.78163 134.773 2.13779 131.425C2.28657 130.024 3.19624 128.834 4.30016 128.038C15.2272 120.164 71.7622 131.733 87.1335 134.1C83.4536 131.935 74.1057 129.189 69.5882 127.541C51.6722 120.96 31.9873 114.579 17.7635 101.229C13.998 97.6955 10.8805 91.6964 16.0984 87.8078C24.0116 81.9108 35.6133 81.9948 44.9619 82.6528C40.6727 77.2789 36.2323 70.2735 32.5165 64.4577C18.5009 42.5211 56.3847 55.856 64.0436 58.131C63.5406 51.5482 62.8795 44.782 63.2098 38.182C63.4153 34.0733 64.1426 28.5281 67.4856 25.694C68.4658 24.8628 69.6307 24.401 70.9161 24.5301C79.9773 25.4383 103.487 63.4303 109.048 72.6709C114.685 82.037 119.599 92.4717 126.281 101.081C123.862 94.5055 121.631 87.6197 119.232 80.8934C113.132 63.4893 105.724 46.6513 103.239 28.2314C100.802 10.1638 108.074 3.16497 123.339 15.2484C127.448 18.5009 130.786 22.6995 134.63 26.0107L134.855 26.2015Z" fill="#257CD0"/>
       <path d="M139.108 119.503C144.671 118.375 148.667 117.957 154.328 118.712C159.984 120.631 161.793 121.75 166.663 125.338C170.85 128.775 173.47 131.605 176.641 136.092C179.388 141.022 180.69 145.144 181.229 150.803C181.41 156.796 181.101 160.719 179.359 166.565C176.836 175.83 166.3 186.431 156.786 187.386C151.322 187.934 143.288 188.17 137.836 187.554C131.654 185.866 127.692 182.841 123.019 178.699C118.785 174.541 117.386 171.751 114.709 166.629C112.198 160.315 112.131 157.433 112.362 150.763C113.378 144.518 115.233 140.237 117.951 134.662C121.309 129.541 124.774 126.488 129.578 122.805C132.986 121.026 135.358 120.295 139.108 119.503Z" fill="#3D3541"/>
@@ -106,12 +110,12 @@
       </div>
       <p class="project-desc-label">Courte description</p>
       <p class="project-desc">Développement complet d'une application web. Scrappy est un réseau social de partage de balades, qui a pour objectif d'encourager les utilisateurs à sortir de chez eux et à découvrir de nouveaux endroits. En groupe de 3 étudiants, développée de A à Z — j'en suis la développeuse principale.</p>
-      <div class="project-media"><img src="images/accueil_scrappy_mob.webp" alt="Aperçu du projet Scrappy" loading="lazy" /></div>
+      <button type="button" class="project-media" aria-label="Agrandir l'aperçu du projet Scrappy"><img src="images/scrappy.gif" alt="Aperçu animé du projet Scrappy" loading="lazy" /><span class="project-media-hint">Agrandir</span></button>
     </div>
   </div>
 
   <!-- 02 Esport Olympique — pivoine violette -->
-  <div id="project-02" class="project-row reverse">
+  <div id="project-02" class="project-row reverse" data-color="#7A3E96">
     <svg class="project-flower" viewBox="0 0 300 267" fill="none" aria-hidden="true">
       <path d="M11.9363 109.065C17.3189 102.784 27.495 97.1352 35.7756 96.6591C12.3029 79.1737 23.2137 52.2742 44.8545 40.0939C54.8847 34.4487 56.9066 32.3205 63.4537 23.1398C78.1307 2.5583 111.115 -5.47823 133.948 3.86964C142.29 7.28507 148.648 11.5526 152.412 20.2605C153.986 17.4791 156.128 14.0309 158.608 12.0498C167.909 4.62204 185.423 0.868195 196.927 2.39655C205.618 3.71493 215.294 5.89544 222.968 10.4396C227.409 13.0701 233.528 17.7912 236.832 21.7569C239.745 25.2544 240.202 29.6691 244.485 32.4668C247.249 34.2742 249.878 35.8513 252.895 37.2591C259.107 40.1045 266.834 45.1919 271.015 50.826C276.668 58.4456 281.267 67.8119 279.98 77.6732C278.914 85.8452 275.121 90.9865 268.984 95.8561C284.316 101.071 293.318 111.701 297.593 127.628C300.644 138.996 301.468 157.522 296.022 168.19C294.621 170.927 292.949 173.509 291.03 175.896C284.688 183.677 280.756 186.246 279.999 197.567C279.305 207.95 273.553 216.476 265.512 222.667C251.831 233.195 227.55 237.232 215.988 221.331C216.591 235.377 214.324 245.317 203.628 255.179C192.496 265.44 179.53 266.643 165.32 263.475C165.269 263.473 165.221 263.47 165.171 263.47H151.237L137.498 265.516C121.221 268.604 110.461 267.675 98.4098 254.927C96.0704 252.451 94.836 250.338 92.905 247.593C86.9743 239.159 85.3614 231.058 85.5084 220.838C80.9195 227.655 74.2058 231.296 66.2043 231.952C54.1997 232.933 42.9835 228.842 33.975 220.776C27.1773 214.688 21.3341 207.73 20.5761 198.147C20.2645 194.703 19.3605 190.251 17.8619 187.155C16.1384 183.596 13.4876 180.302 10.9829 177.241C3.63999 168.268 0.928772 161.791 0.185313 150.177C-0.785143 135.022 1.90083 120.777 11.9363 109.065Z" fill="#7A3E96"/>
       <path d="M151.375 40.7628C151.41 39.1989 151.378 37.9038 151.761 36.373C152.362 37.2352 152.255 42.5063 152.255 43.7734C152.744 45.9667 152.728 50.2299 152.88 52.6011L155.137 87.5092C155.386 91.3641 155.679 106.436 157.755 108.283C162.489 109.669 172.531 93.2203 175.439 89.3245C184.131 77.6799 193.676 66.863 205.695 58.6714C207.033 57.7595 211.527 54.6933 212.761 54.5172C211.145 56.5487 206.865 59.2114 204.523 61.7127C191.911 75.1111 180.752 90.3489 172.757 107.063C171.912 108.828 168.927 115.968 171.09 116.703C177.483 118.875 189.141 111.343 194.356 109.21C207.681 103.76 227.186 96.6734 241.274 97.4323C238.469 98.2743 235.66 99.0243 232.906 100.037C221.681 104.165 186.791 118.9 181.598 128.449C181.164 129.242 180.994 129.868 181.164 130.762C182.679 133.186 191.081 135.088 193.883 135.867C210.201 140.402 226.383 146.782 240.407 156.553C242.619 158.093 245.146 159.554 247.244 161.249C229.001 153.49 211.126 145.683 191.268 143.332C187.964 142.941 175.242 141.199 179.163 148.416C186.074 161.136 195.914 172.31 202.392 185.357C204.778 190.168 206.83 195.031 209.228 199.896L209.002 199.658C205.587 196.025 203.319 192.03 199.332 187.401C188.998 175.402 176.343 159.351 160.495 154.972C160.001 154.835 159.355 155.188 158.972 155.481C156.41 159.442 155.325 178.732 154.858 184.112L152.176 213.251C152.223 215.676 152.282 217.472 151.838 219.889C151.187 219.041 151.338 213.224 151.344 211.78C151.123 210.116 151.197 206.686 150.998 205.215C150.076 198.344 149.555 159.896 145.94 156.216C144.013 155.533 139.418 157.55 137.587 158.563C125.989 164.98 116.002 174.42 107.214 184.364C103.682 188.36 100.689 191.311 98.2428 196.149L97.9145 196.204C97.1617 192.208 117.965 159.794 121.288 155.124C126.349 148.013 127.984 143.5 116.78 143.958C99.4402 144.666 82.8803 150.378 66.7506 156.481C65.1308 157.094 58.3353 160.634 57.5708 160.58L57.6978 160.168C61.0148 158.165 64.0517 155.958 67.2629 153.938C80.5085 145.606 95.9281 140.096 110.94 136.101C113.938 135.303 119.897 134.2 121.104 131.07C121.165 128.285 115.868 124.142 113.701 122.554C97.7268 110.85 78.7385 103.703 60.1693 97.5366C76.5581 97.9224 90.8895 102.26 105.813 108.722C110.58 110.786 127.362 121.241 131.824 117.027C132.933 113.942 129.399 107.906 127.913 105.015C119.019 87.7083 107.409 72.0655 94.127 58.0171C93.1747 57.0098 86.4857 50.9939 86.4665 50.426C87.7209 50.9305 91.3491 54.0105 92.8113 54.9802C100.714 60.2204 108.193 67.6256 114.555 74.76C117.497 78.0147 120.305 81.392 122.973 84.883C126.296 89.2977 138.17 107.784 142.326 108.846C143.081 109.039 143.388 108.929 144.037 108.594C146.187 106.145 147.032 88.1551 147.378 84.1609L150.52 50.0619C150.764 47.4365 150.833 43.1955 151.375 40.7628Z" fill="#532A72"/>
@@ -125,13 +129,13 @@
       <div class="project-tags"><span>HTML</span><span>CSS</span><span>Storytelling</span></div>
       <p class="project-desc-label">Courte description</p>
       <p class="project-desc">Et si l'Esport était une discipline olympique ? Projet réalisé en groupe de 5 dans le cadre du Master, développant le storytelling autour du thème du sport. J'ai occupé le rôle de développeuse web.</p>
-      <div class="project-media"><img src="images/esport-fullpage.png" alt="Aperçu du projet Esport Olympique" loading="lazy" /></div>
+      <button type="button" class="project-media" aria-label="Agrandir l'aperçu du projet Esport Olympique"><img src="images/esport-fullpage.png" alt="Aperçu du projet Esport Olympique" loading="lazy" /><span class="project-media-hint">Agrandir</span></button>
       <a href="https://juli-bm.github.io/site_esport/Index.html" class="btn btn-outline" target="_blank" rel="noopener">Visiter le site</a>
     </div>
   </div>
 
   <!-- 03 La La Langues — pivoine rose -->
-  <div id="project-03" class="project-row">
+  <div id="project-03" class="project-row" data-color="#E9878E">
     <svg class="project-flower" viewBox="0 0 300 265" fill="none" aria-hidden="true">
       <path d="M141.832 7.9255C146.455 4.35555 151.001 1.73015 156.831 0.605329C171.287 -2.18405 186.984 4.92681 195.792 16.5819C196.995 18.1703 198.138 19.8041 199.218 21.4803C215.003 10.4521 234.535 20.5581 244.033 35.0214C248.634 42.0274 250.761 48.2861 252.492 56.4106C258.894 55.25 265.109 57.398 270.288 61.252C292.307 77.6359 288.805 112.067 280.224 134.803C280.007 135.384 280.389 135.649 280.732 135.906C284.026 135.217 291.967 133.753 294.796 135.682C297.723 137.678 298.854 141.458 299.361 144.844C301.634 160.026 297.772 175.959 288.886 188.361C280.22 200.456 267.578 206.673 253.454 209.922C274.359 230.303 249.054 254.618 225.556 251.14C221.132 258.314 216.291 261.88 207.859 263.734C193.363 266.922 178.664 264.008 166.228 255.893C160.792 252.346 157.375 248.488 152.814 243.989C152.165 242.173 148.456 236.104 147.294 233.928C146.057 236.577 141.19 245.228 140.911 246.75L140.778 246.151C140.071 246.306 137.497 249.127 136.706 249.852C121.247 263.999 95.4512 268.526 77.5398 256.613C73.2277 253.745 70.9131 249.983 68.6555 245.492C64.4692 246.123 60.12 245.967 55.7057 244.978C40.0487 241.471 20.2712 218.849 29.5294 202.422C31.0493 199.725 34.5322 197.305 37.3031 195.683C23.6688 188.288 13.1417 178.501 6.37708 164.072C-1.08361 148.159 -1.87207 128.065 3.35205 111.272C4.6671 107.045 8.09791 100.939 12.2839 99.1013C16.6632 97.1778 20.1059 98.5884 24.2685 100.177C23.4692 93.2155 23.0431 87.2822 23.5949 80.1905C25.3938 57.0722 42.0906 26.9684 68.882 31.2095C70.1957 31.4178 71.8017 31.8116 73.1111 32.1399C85.5866 17.223 99.7706 2.75013 120.117 1.28461C129.015 0.643578 135.379 1.49499 141.832 7.9255Z" fill="#E9878E"/>
       <path d="M141.832 7.9255C146.455 4.35555 151.001 1.73015 156.831 0.605329C171.287 -2.18405 186.984 4.92681 195.793 16.5819C196.996 18.1703 198.138 19.8041 199.218 21.4803C215.003 10.4521 234.535 20.5581 244.033 35.0214C248.634 42.0274 250.761 48.2861 252.493 56.4106C258.894 55.25 265.109 57.398 270.288 61.252C292.307 77.6359 288.805 112.067 280.224 134.803C280.007 135.384 280.389 135.649 280.732 135.906C278.291 136.542 275.743 143.591 274.524 146.072C271.874 151.528 268.481 156.584 264.455 161.096C261.857 164.051 251.251 174.276 248.027 174.459C247.651 173.861 247.521 173.585 247.801 172.864C254.776 154.881 258.921 133.896 252.297 115.149C250.516 110.109 247.597 105.586 246.26 99.822C244.978 95.4821 244.081 91.6331 242.441 87.3728C236.711 72.1067 225.821 59.387 211.702 51.469C205.486 48.0627 197.083 45.1306 189.963 44.9212C189.099 43.8375 188.015 42.577 187.243 41.408C174.815 22.602 145.869 19.5997 128.718 33.2559C126.337 35.1513 123.945 37.747 122.011 40.0802C117.045 38.1553 111.701 36.8495 106.377 37.4286C88.1418 39.4108 70.6317 51.8416 63.9507 69.3396C63.0828 71.613 62.4326 74.2012 61.8311 76.5511C73.9575 78.5719 77.0077 85.1958 79.6966 97.1304C79.9841 98.4071 79.7292 101.206 80.3682 101.876C82.77 102.281 84.7201 102.455 86.9241 103.485C95.3459 107.419 100.67 116.884 103.53 125.474C105.48 131.332 105.52 137.214 104.956 143.402C113.78 141.743 119.279 143.716 125.23 150.858C127.85 139.496 137.299 138.434 147.435 140.38C154.839 141.802 159.911 148.848 163.772 154.97L166.568 159.793C168.939 158.529 172.369 157.83 175.015 157.216C175.553 157.441 176.087 157.677 176.615 157.924C183.271 160.963 187.097 164.328 189.95 171.353C192.885 178.579 190.138 190.931 186.958 197.762C182.931 206.413 174.567 214.625 165.521 217.727C158.286 220.208 153.611 219.957 146.297 220.485C126.939 221.884 107.956 220.498 90.2307 211.88C82.4664 208.105 79.2828 205.74 72.2629 200.69C54.8676 188.268 41.0778 170.633 36.6148 149.262C34.8737 140.924 35.1342 134.005 34.7606 125.773C34.6727 123.836 29.9493 114.825 28.8951 112.427C27.1291 108.412 25.7682 104.402 24.2686 100.177C23.4693 93.2154 23.0432 87.2822 23.595 80.1904C25.3939 57.0722 42.0907 26.9684 68.8821 31.2095C70.1958 31.4178 71.8018 31.8116 73.1112 32.1399C85.5867 17.223 99.7707 2.75013 120.117 1.28461C129.015 0.643578 135.379 1.49499 141.832 7.9255Z" fill="#F0A1A6"/>
@@ -153,13 +157,13 @@
       <div class="project-tags"><span>WordPress</span><span>Gestion de projet</span><span>Figma</span></div>
       <p class="project-desc-label">Courte description</p>
       <p class="project-desc">Site web réel pour un organisme de formation en langues basé à Bordeaux. De la charte graphique au développement WordPress, en passant par le maquettage — cheffe de projet et développeuse web, avec une équipe de 4 personnes.</p>
-      <div class="project-media"><img src="images/wireframe-lalalangues.png" alt="Aperçu du projet La La Langues" loading="lazy" /></div>
+      <button type="button" class="project-media" aria-label="Agrandir l'aperçu du projet La La Langues"><img src="images/wireframe-lalalangues.png" alt="Aperçu du projet La La Langues" loading="lazy" /><span class="project-media-hint">Agrandir</span></button>
       <a href="https://lalalangues.com" class="btn btn-outline" target="_blank" rel="noopener">Visiter le site</a>
     </div>
   </div>
 
   <!-- 04 The Mandalorian — lys blanc -->
-  <div id="project-04" class="project-row reverse">
+  <div id="project-04" class="project-row reverse" data-color="#F9C681">
     <svg class="project-flower" viewBox="0 0 300 269" fill="none" aria-hidden="true">
       <path d="M111.123 93.3564C110.401 89.4918 110.259 84.9743 110.222 81.0466C110.071 65.0629 114.424 48.9379 121.118 34.5609C125 26.2224 130.724 19.2629 132.23 9.90692C132.699 6.99793 132.989 3.58496 134.217 0.947388C134.488 0.427519 135.362 0.192598 135.895 0.12238C142.747 -0.780144 152.282 3.48017 157.575 7.28052C171.833 17.5214 179.899 35.3301 182.701 52.3911C184.981 66.2822 184.451 81.5495 182.482 95.459C182.052 98.5042 181.299 101.321 180.877 104.185C196.403 86.0894 216.732 70.4585 241.148 68.6296C257.858 67.3779 273.174 73.3482 285.712 84.3614C292.303 90.1508 299.27 99.0288 299.912 108.203C300.057 110.263 300.203 113.272 298.767 114.913C297.712 116.119 296.157 116.675 294.6 116.728C292.369 116.805 290.063 116.271 287.846 116.027C283.289 115.525 278.283 115.432 273.749 116.061C258.125 118.23 236.135 138.09 224.049 148.522C219.836 152.158 215.801 156.231 211.128 159.246C244.548 168.526 257.767 203.021 249.077 234.941C245.516 248.023 238.038 259.91 226.03 266.584C214.874 272.784 214.745 266.108 211.45 257.224C210.421 254.529 209.25 251.892 207.946 249.324C202.729 238.862 195.582 230.348 187.502 222.023C182.76 217.136 177.65 212.944 172.739 208.25L172.385 208.231L172.278 208.368C168.534 214.859 164.703 220.9 158.483 225.411C157.011 226.479 154.631 227.269 153.704 227.909C150.386 228.594 147.078 228.909 144.026 227.125C143.366 226.741 141.332 225.746 140.641 225.59C139.121 224.43 137.339 223.487 135.828 222.332C131.805 219.257 129.034 215.933 126.226 211.797C124.061 208.003 123.013 205.568 121.353 201.522C120.295 201.509 109.078 206.826 107.206 207.689C91.1686 215.076 76.7821 225.89 65.4477 239.571C61.2346 244.647 57.3405 251.411 52.7265 256.215C50.5879 258.667 47.0329 259.116 44.4425 256.919C37.3481 250.905 34.2555 239.416 32.9954 230.518C28.5358 199.025 51.4305 160.201 84.1359 155.853C84.7327 155.773 85.3309 155.702 85.93 155.642L68.9802 143.169C54.7452 132.734 40.2081 122.228 21.7185 124.547C18.5915 124.939 13.5886 127.972 10.9954 129.834C4.41486 134.558 0.553066 137.968 0.0369296 126.797C-0.563638 113.797 6.24478 101.069 14.3371 91.4079C41.7705 59.8292 79.6882 64.8553 108.637 90.894C109.508 91.6703 110.338 92.4921 111.123 93.3564Z" fill="#FBE4C7"/>
       <path d="M148.67 184.58C153.072 192.691 160.503 198.158 167.321 204.056C168.32 204.922 171.725 207.516 172.279 208.368C168.534 214.86 164.703 220.9 158.483 225.412C157.011 226.479 154.631 227.269 153.704 227.909C150.386 228.594 147.079 228.91 144.026 227.125C143.366 226.741 141.332 225.747 140.642 225.59C139.122 224.43 137.339 223.488 135.828 222.332C131.805 219.257 129.034 215.933 126.226 211.798C124.061 208.003 123.014 205.568 121.353 201.523C122.737 200.75 126.484 199.266 128.061 198.589C133.933 196.075 138.677 193.998 143.901 190.221C146.12 188.278 147.206 187.168 148.67 184.58Z" fill="#95AA34"/>
@@ -182,13 +186,13 @@
       <div class="project-tags"><span>HTML</span><span>CSS</span><span>Storytelling</span></div>
       <p class="project-desc-label">Courte description</p>
       <p class="project-desc">Mon premier projet HTML/CSS, réalisé en dernière année de licence LEA. Chacun devait choisir une série TV à représenter en gardant son atmosphère graphique — grande fan de Star Wars, j'ai choisi The Mandalorian.</p>
-      <div class="project-media"><img src="images/themandalorian-fullpage.png" alt="Aperçu du projet The Mandalorian" loading="lazy" /></div>
+      <button type="button" class="project-media" aria-label="Agrandir l'aperçu du projet The Mandalorian"><img src="images/themandalorian-fullpage.png" alt="Aperçu du projet The Mandalorian" loading="lazy" /><span class="project-media-hint">Agrandir</span></button>
       <a href="https://juli-bm.github.io/site_mando/Index.html" class="btn btn-outline" target="_blank" rel="noopener">Visiter le site</a>
     </div>
   </div>
 
   <!-- 05 Présentation développeur web — tulipe orange -->
-  <div id="project-05" class="project-row">
+  <div id="project-05" class="project-row" data-color="#E01E33">
     <svg class="project-flower" viewBox="0 0 300 288" fill="none" aria-hidden="true">
       <path d="M89.9868 84.4266C89.9859 84.2874 86.4767 73.9249 86.2442 72.9793C78.4995 41.4758 101.26 9.06891 132.365 2.60479C143.914 0.204673 159.034 -2.19607 168.587 3.55703C186.976 14.1825 203.321 24.937 208.661 46.766C211.011 56.3715 212.585 71.4747 210.09 81.0632C206.98 83.1717 203.921 84.8394 200.855 86.8748C193.915 91.5129 187.733 97.2018 182.534 103.738C179.581 107.407 177.712 110.777 175.152 114.112C170.607 122.809 169.196 125.957 166.168 135.16L165.728 136.127C170.899 139.79 173.713 142.219 176.764 147.837C179.462 155.453 179.817 158.686 177.477 166.61C185.321 165.997 193.68 164.065 201.185 163.433C207.386 162.913 227.041 168.861 232.73 171.965C237.134 174.366 241.036 176.596 244.903 179.958C246.828 181.631 251.804 187.473 253.331 187.867L253.083 188.32C253.95 189.758 255.31 191.015 256.375 192.306C267.323 205.581 273.806 222.42 269.503 239.646C266.214 252.799 254.647 268.515 243.106 275.449C240.923 276.74 238.645 277.855 236.289 278.787C234.483 279.495 232.642 280.109 230.773 280.62C214.683 284.908 196.633 281.788 181.686 274.923C177.863 273.166 173.71 270.694 170.054 268.553C158.94 259.648 157.78 259.157 148.916 247.575C148.08 250.261 147.15 252.119 146.346 254.477C138.462 269.151 131.813 279.71 114.832 284.59C96.0537 289.991 70.2993 289.254 52.6314 280.368C47.691 277.883 44.5352 274.325 41.3706 269.998C32.3571 257.532 26.8048 244.848 28.186 229.223C29.6515 212.644 34.9506 200.413 47.293 189.443C45.1456 188.952 42.9875 188.414 40.8642 187.901C15.6596 181.842 2.97037 158.563 0.622204 134.207C-0.25926 125.068 -0.717895 111.971 2.89058 103.407C11.6751 87.5182 32.271 73.6292 50.4312 72.1558C66.5542 70.8477 76.9204 76.1638 89.9868 84.4266Z" fill="#E01E33"/>
       <path d="M106.078 153.939C108.56 155.507 115.237 161.149 116.788 161.851C119.364 169.655 122.1 174.583 129.172 179.299C133.468 181.949 138.278 183.651 143.281 184.294C153.618 185.544 162.119 182.947 170.277 176.611C173.911 173.28 175.29 171.029 177.477 166.61C185.321 165.997 193.68 164.065 201.185 163.433C207.386 162.913 227.041 168.861 232.73 171.965C237.134 174.366 241.036 176.596 244.903 179.958C246.828 181.631 251.804 187.473 253.331 187.867L253.083 188.32C253.95 189.758 255.31 191.015 256.375 192.306C267.323 205.581 273.806 222.42 269.503 239.646C266.214 252.799 254.647 268.515 243.106 275.449C240.923 276.74 238.645 277.855 236.289 278.787C234.483 279.495 232.642 280.109 230.773 280.62C214.683 284.908 196.633 281.788 181.686 274.923C177.863 273.166 173.71 270.694 170.054 268.553C158.94 259.648 157.78 259.157 148.916 247.575C148.08 250.261 147.15 252.119 146.346 254.477C138.462 269.151 131.813 279.71 114.832 284.59C96.0537 289.991 70.2993 289.254 52.6314 280.368C47.691 277.883 44.5352 274.325 41.3706 269.998C32.3571 257.532 26.8048 244.848 28.186 229.223C29.6515 212.644 34.9506 200.413 47.293 189.443C60.5304 177.751 76.3449 172.873 93.2947 169.827C87.6377 167.959 84.7197 166.636 80.489 162.494C85.6251 157.94 94.5239 156.316 101.103 154.931C102.532 154.63 105.031 154.462 106.078 153.939Z" fill="#E01E33"/>
@@ -220,13 +224,13 @@
       <div class="project-tags"><span>HTML</span><span>CSS</span></div>
       <p class="project-desc-label">Courte description</p>
       <p class="project-desc">Support de présentation sur le métier de développeur web, conçu dans le cadre du cours Projet Professionnel Étudiant de mon Master, en complément d'une présentation orale.</p>
-      <div class="project-media"><img src="images/dev_web_gallery.png" alt="Aperçu du projet Présentation développeur web" loading="lazy" /></div>
+      <button type="button" class="project-media" aria-label="Agrandir l'aperçu du projet Présentation développeur web"><img src="images/dev_web_gallery.png" alt="Aperçu du projet Présentation développeur web" loading="lazy" /><span class="project-media-hint">Agrandir</span></button>
       <a href="https://juli-bm.github.io/site_dev_web/accueil.html" class="btn btn-outline" target="_blank" rel="noopener">Visiter le site</a>
     </div>
   </div>
 
   <!-- 06 Bloom & Brew — orchidée rose -->
-  <div id="project-06" class="project-row reverse">
+  <div id="project-06" class="project-row reverse" data-color="#F8A0C5">
     <svg class="project-flower" viewBox="0 0 300 263" fill="none" aria-hidden="true">
       <path d="M102.7 57.2105C104.396 47.8783 107.806 38.9556 112.75 30.91C119.225 20.4866 134.301 2.79444 146.576 0.311828C162.573 -2.92364 179.597 19.819 187.649 31.4837C192.641 38.7161 195.805 48.0883 197.64 56.6726L198.144 57.977C201.53 57.5053 205.972 54.4091 212.525 53.7315C231.411 51.8326 250.661 63.364 265.243 74.3874C280.913 86.2345 297.046 102.776 299.546 123.49C302.856 150.904 287.728 183.067 265.718 198.955C263.837 200.313 261.251 201.751 259.564 203.165C265.227 214.263 277.206 235.745 273.301 248.063C271.78 252.706 268.517 256.548 264.225 258.752C251.264 265.428 230.827 263.369 217.558 258.521C203.061 253.224 185.468 243.059 174.065 232.557C168.357 236.237 163.998 238.765 157.699 241.311C152.188 242.362 149.922 243.082 144.332 242.02C142.992 241.186 137.196 238.776 135.495 238.008C130.942 235.953 128.186 234.289 124.005 231.545C120.57 228.449 116.857 224.799 116.144 219.903C114.63 209.516 128.335 210.273 131.313 206.002C131.445 203.977 128.463 203.071 126.37 202.105C114.414 196.586 109.012 190.459 104.355 178.15C96.2569 190.065 85.0953 207.088 70.2242 209.899C62.1039 211.434 47.3923 207.21 40.6076 202.53C10.2644 184.437 -11.8922 136.31 6.9758 103.85C21.7378 78.4547 63.5228 46.9653 94.3783 54.6467C96.4017 55.1501 101.422 57.5915 102.7 57.2105Z" fill="#F8A0C5"/>
       <path d="M40.6076 202.53C10.2644 184.438 -11.8922 136.311 6.9758 103.851C21.7378 78.4552 63.5228 46.9658 94.3783 54.6472C96.4017 55.1506 101.422 57.592 102.7 57.211L103.089 57.6627C106.437 61.4801 113.164 65.6398 115.633 70.444C119.543 78.0547 121.587 88.1112 123.809 96.1364C126.409 105.527 135.005 128.555 141.937 134.683C138.574 137.527 137.15 138.905 135.611 143.126L129.118 141.936C123.652 136.861 115.227 143.133 111.414 147.512C103.713 156.353 101.754 166.754 104.355 178.151C96.2569 190.066 85.0953 207.089 70.2242 209.9C62.1039 211.435 47.3923 207.211 40.6076 202.53Z" fill="#F8A0C5"/>
@@ -244,12 +248,12 @@
       <div class="project-tags"><span>Branding</span><span>Design</span></div>
       <p class="project-desc-label">Courte description</p>
       <p class="project-desc">Création d'une identité visuelle pour une marque de café bio et éthique fictive.</p>
-      <div class="project-media"><img src="images/bloom-brew-charte.png" alt="Aperçu du projet Bloom & Brew" loading="lazy" /></div>
+      <button type="button" class="project-media" aria-label="Agrandir l'aperçu du projet Bloom &amp; Brew"><img src="images/bloom-brew-charte.png" alt="Aperçu du projet Bloom & Brew" loading="lazy" /><span class="project-media-hint">Agrandir</span></button>
     </div>
   </div>
 
   <!-- 07 Landing page Roxy — pavot corail -->
-  <div id="project-07" class="project-row">
+  <div id="project-07" class="project-row" data-color="#F28083">
     <svg class="project-flower" viewBox="0 0 300 405" fill="none" aria-hidden="true">
       <path d="M140.485 29.1935C154.048 14.4997 173.754 -14.1127 192.367 8.24258C200.121 17.5555 208.287 26.2879 214.689 36.7803C224.463 27.0991 239.806 8.09332 254.429 8.77757C259.125 8.99661 262.562 11.5514 265.563 15.056C293.895 48.147 302.666 178.481 299.328 223.883C295.392 277.4 280.085 334.444 239.128 370.64C219.632 387.871 194.234 400.156 168.525 402.733L168.401 403.346C164.158 403.26 141.646 402.38 139.251 403.409L138.576 405C137.786 401.622 131.046 400.853 127.806 400.129C-12.874 368.722 -11.1524 179.403 11.4022 64.628C23.8628 1.21791 34.521 -0.343445 79.364 38.8873C108.299 4.22628 105.842 -4.04478 140.485 29.1935Z" fill="#F28083"/>
       <path d="M214.688 36.7805C224.463 27.0993 239.805 8.09351 254.429 8.77775C259.124 8.99679 262.562 11.5516 265.562 15.0562C293.895 48.1471 302.666 178.482 299.328 223.883C295.392 277.4 280.085 334.444 239.128 370.641C219.631 387.871 194.233 400.156 168.525 402.733L167.743 401.661C167.644 399.056 178.463 389.84 181.273 387.467C197.713 372.968 210.768 346.541 216.23 325.138C236.285 246.547 215.512 159.063 179.594 89.8842C186.649 72.5203 202.757 51.0954 214.688 36.7805Z" fill="#DD4759"/>
@@ -261,8 +265,16 @@
       <div class="project-tags"><span>WordPress</span><span>Storytelling</span></div>
       <p class="project-desc-label">Courte description</p>
       <p class="project-desc">Projet de landing page réalisé dans le cadre d'un projet de licence — création d'une landing page pour la nouvelle collection fictive d'un site de vente de vêtements en ligne, Roxy.</p>
-      <div class="project-media"><img src="images/page_roxy.png" alt="Aperçu du projet Landing page Roxy" loading="lazy" /></div>
+      <button type="button" class="project-media" aria-label="Agrandir l'aperçu du projet Landing page Roxy"><img src="images/page_roxy.png" alt="Aperçu du projet Landing page Roxy" loading="lazy" /><span class="project-media-hint">Agrandir</span></button>
     </div>
+  </div>
+
+  </div>
+
+  <div class="catalogue-controls">
+    <button type="button" class="catalogue-arrow catalogue-arrow-up" aria-label="Projet précédent">↑</button>
+    <span class="catalogue-counter"><span class="catalogue-counter-current">01</span> / <span class="catalogue-counter-total">07</span></span>
+    <button type="button" class="catalogue-arrow catalogue-arrow-down" aria-label="Projet suivant">↓</button>
   </div>
 
 </section>
@@ -297,13 +309,229 @@
   <p>© 2026 Juliette Mouillac</p>
 </footer>
 
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button type="button" class="lightbox-close" aria-label="Fermer l'aperçu">✕</button>
+  <img class="lightbox-img" src="" alt="" />
+</div>
+
+<script>
+  // Unified smooth scroll: eases wheel-driven scrolling (not just anchor jumps)
+  // and exposes scrollTo() so every other script animates through one system.
+  (function () {
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var current = window.scrollY;
+    var target = window.scrollY;
+    var raf = null;
+
+    function maxScroll() {
+      return Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+    }
+
+    function loop() {
+      var diff = target - current;
+      if (Math.abs(diff) < 0.5) {
+        current = target;
+        window.scrollTo(0, current);
+        raf = null;
+        return;
+      }
+      current += diff * 0.12;
+      window.scrollTo(0, current);
+      raf = requestAnimationFrame(loop);
+    }
+
+    function scrollTo(y) {
+      target = Math.max(0, Math.min(maxScroll(), y));
+      if (reducedMotion) {
+        current = target;
+        window.scrollTo(0, current);
+        return;
+      }
+      if (raf === null) raf = requestAnimationFrame(loop);
+    }
+
+    // "Near" on purpose uses a generous band (does the section cover the
+    // viewport's vertical center?) rather than a pixel-perfect top===0 check —
+    // a single wheel/trackpad tick can easily be tens or hundreds of pixels,
+    // so a narrow band could get jumped over entirely and never engage.
+    function isNearSection(el) {
+      if (!el) return false;
+      var rect = el.getBoundingClientRect();
+      var mid = window.innerHeight / 2;
+      return rect.top <= mid && rect.bottom >= mid;
+    }
+
+    function isFillingViewport(el) {
+      if (!el) return false;
+      var rect = el.getBoundingClientRect();
+      return rect.top <= 2 && rect.bottom >= window.innerHeight - 2;
+    }
+
+    var wheelCooldown = false;
+    var engaged = false;
+
+    window.addEventListener('wheel', function (e) {
+      if (window.__lightboxOpen && window.__lightboxOpen()) return;
+
+      var cat = window.__catalogue;
+      var near = cat && isNearSection(cat.section);
+
+      if (near) {
+        // The first tick that reaches the catalogue snaps it flush with the
+        // viewport before wheel ticks start paging through projects — but
+        // only spends a tick on that if it wasn't already aligned (e.g. a
+        // dot-nav click already lands exactly on it).
+        if (!engaged) {
+          engaged = true;
+          var rect = cat.section.getBoundingClientRect();
+          if (Math.abs(rect.top) > 2) {
+            e.preventDefault();
+            current = window.scrollY + rect.top;
+            target = current;
+            window.scrollTo(0, current);
+            return;
+          }
+        }
+
+        var atFirst = cat.getIndex() === 0;
+        var atLast = cat.getIndex() === cat.count() - 1;
+        var down = e.deltaY > 0;
+        var up = e.deltaY < 0;
+
+        if ((down && !atLast) || (up && !atFirst)) {
+          e.preventDefault();
+          if (!wheelCooldown) {
+            wheelCooldown = true;
+            cat.goTo(cat.getIndex() + (down ? 1 : -1));
+            setTimeout(function () { wheelCooldown = false; }, 650);
+          }
+          return;
+        }
+        // At a boundary continuing outward: fall through and release.
+      } else {
+        engaged = false;
+      }
+
+      e.preventDefault();
+      current = window.scrollY;
+      scrollTo(current + e.deltaY);
+    }, { passive: false });
+
+    // Stay in sync if the page scrolls by other means (keyboard, scrollbar drag).
+    window.addEventListener('scroll', function () {
+      if (raf === null) {
+        current = window.scrollY;
+        target = current;
+      }
+    }, { passive: true });
+
+    window.__smoothScroll = { scrollTo: scrollTo, isFillingViewport: isFillingViewport, isNearSection: isNearSection };
+
+    // Animate in-page anchor links (top nav, hero buttons, scroll hint) through
+    // the same system. Dot-nav links are handled separately (they also drive the catalogue).
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest && e.target.closest('a[href^="#"]');
+      if (!link || link.classList.contains('dot-nav-item')) return;
+      var el = document.getElementById(link.getAttribute('href').slice(1));
+      if (!el) return;
+      e.preventDefault();
+      scrollTo(window.scrollY + el.getBoundingClientRect().top);
+    });
+  })();
+</script>
+
+<script>
+  // Projects catalogue: one project visible at a time, stepped via arrows,
+  // mouse wheel, touch swipe, or the dot nav. Releases to normal scroll at the edges.
+  (function () {
+    var section = document.getElementById('projects');
+    if (!section) return;
+    var rows = Array.prototype.slice.call(section.querySelectorAll('.project-row'));
+    if (!rows.length) return;
+
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var index = Math.max(0, rows.findIndex(function (r) { return r.classList.contains('active'); }));
+
+    var upBtn = section.querySelector('.catalogue-arrow-up');
+    var downBtn = section.querySelector('.catalogue-arrow-down');
+    var counterEl = section.querySelector('.catalogue-counter-current');
+
+    function pad(n) { return n < 10 ? '0' + n : '' + n; }
+
+    function replayBloom(row) {
+      var flower = row.querySelector('.project-flower');
+      if (!flower) return;
+      flower.classList.remove('bloomed');
+      if (reducedMotion) {
+        flower.classList.add('bloomed');
+        return;
+      }
+      void flower.offsetWidth; // restart the CSS transition
+      requestAnimationFrame(function () { flower.classList.add('bloomed'); });
+    }
+
+    function render() {
+      rows.forEach(function (row, i) { row.classList.toggle('active', i === index); });
+      var active = rows[index];
+      replayBloom(active);
+      section.style.setProperty('--catalogue-tint', active.getAttribute('data-color') || 'transparent');
+      if (counterEl) counterEl.textContent = pad(index + 1);
+      if (upBtn) upBtn.disabled = index === 0;
+      if (downBtn) downBtn.disabled = index === rows.length - 1;
+      window.dispatchEvent(new CustomEvent('catalogue:change', { detail: { index: index } }));
+    }
+
+    function goTo(i) {
+      var next = Math.max(0, Math.min(rows.length - 1, i));
+      if (next === index) return;
+      index = next;
+      render();
+    }
+
+    if (upBtn) upBtn.addEventListener('click', function () { goTo(index - 1); });
+    if (downBtn) downBtn.addEventListener('click', function () { goTo(index + 1); });
+
+    window.addEventListener('keydown', function (e) {
+      if (window.__lightboxOpen && window.__lightboxOpen()) return;
+      var smoother = window.__smoothScroll;
+      if (!smoother || !smoother.isNearSection(section)) return;
+      if (e.key === 'ArrowDown') { e.preventDefault(); goTo(index + 1); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); goTo(index - 1); }
+    });
+
+    var touchStartY = null;
+    section.addEventListener('touchstart', function (e) { touchStartY = e.touches[0].clientY; }, { passive: true });
+    section.addEventListener('touchmove', function (e) {
+      if (touchStartY === null || (window.__lightboxOpen && window.__lightboxOpen())) return;
+      var dy = touchStartY - e.touches[0].clientY;
+      if (Math.abs(dy) < 45) return;
+      var down = dy > 0;
+      if ((down && index < rows.length - 1) || (!down && index > 0)) {
+        e.preventDefault();
+        goTo(index + (down ? 1 : -1));
+        touchStartY = e.touches[0].clientY;
+      }
+    }, { passive: false });
+    section.addEventListener('touchend', function () { touchStartY = null; }, { passive: true });
+
+    window.__catalogue = {
+      section: section,
+      goTo: goTo,
+      getIndex: function () { return index; },
+      count: function () { return rows.length; }
+    };
+
+    render();
+  })();
+</script>
+
 <script>
   (function () {
     var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Bloom-in: each flower's petals spring into place as it scrolls into view.
-    var flowers = document.querySelectorAll('.hero-flower, .project-flower');
-    if (flowers.length) {
+    // Bloom-in: the hero flowers spring into place once they're in view on load.
+    var heroFlowers = document.querySelectorAll('.hero-flower');
+    if (heroFlowers.length) {
       var bloomObserver = new IntersectionObserver(
         function (entries) {
           entries.forEach(function (entry) {
@@ -312,15 +540,15 @@
         },
         { threshold: 0.3, rootMargin: '0px 0px -8% 0px' }
       );
-      flowers.forEach(function (flower) { bloomObserver.observe(flower); });
+      heroFlowers.forEach(function (flower) { bloomObserver.observe(flower); });
     }
 
     // Hero: the two flowers roll away to each side as the user scrolls past.
     var hero = document.getElementById('home');
-    var heroFlowers = hero ? hero.querySelectorAll('.hero-flower') : [];
-    if (hero && heroFlowers.length === 2 && !reducedMotion) {
-      var leftFlower = heroFlowers[0];
-      var rightFlower = heroFlowers[1];
+    var heroFlowerEls = hero ? hero.querySelectorAll('.hero-flower') : [];
+    if (hero && heroFlowerEls.length === 2 && !reducedMotion) {
+      var leftFlower = heroFlowerEls[0];
+      var rightFlower = heroFlowerEls[1];
       var ticking = false;
 
       var updateRoll = function () {
@@ -351,32 +579,152 @@
 </script>
 
 <script>
+  // Dot nav: Accueil/À propos track scroll position as before; the 7 project
+  // dots track the catalogue's current index instead, and clicking one both
+  // scrolls to the catalogue and jumps it straight to that project.
   (function () {
     var dotLinks = Array.prototype.slice.call(document.querySelectorAll('.dot-nav-item'));
     if (!dotLinks.length) return;
 
-    var targets = dotLinks.map(function (link) {
-      return document.querySelector(link.getAttribute('href'));
-    });
+    var homeDot = dotLinks[0];
+    var aboutDot = dotLinks[dotLinks.length - 1];
+    var projectDots = dotLinks.slice(1, dotLinks.length - 1);
 
-    var setActive = function (target) {
-      var idx = targets.indexOf(target);
-      if (idx === -1) return;
-      dotLinks.forEach(function (link) { link.classList.remove('active'); });
-      dotLinks[idx].classList.add('active');
-    };
+    var homeSection = document.getElementById('home');
+    var projectsSection = document.getElementById('projects');
+    var aboutSection = document.getElementById('about');
+    var currentSection = homeSection;
+
+    function setActiveDot(dot) {
+      dotLinks.forEach(function (d) { d.classList.remove('active'); });
+      if (dot) dot.classList.add('active');
+    }
+
+    function updateFromCatalogue() {
+      var idx = window.__catalogue ? window.__catalogue.getIndex() : 0;
+      setActiveDot(projectDots[idx]);
+    }
 
     var observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
-          if (entry.isIntersecting) setActive(entry.target);
+          if (!entry.isIntersecting) return;
+          currentSection = entry.target;
+          if (entry.target === homeSection) setActiveDot(homeDot);
+          else if (entry.target === aboutSection) setActiveDot(aboutDot);
+          else if (entry.target === projectsSection) updateFromCatalogue();
         });
       },
       { rootMargin: '-45% 0px -45% 0px', threshold: 0 }
     );
 
-    targets.forEach(function (target) {
-      if (target) observer.observe(target);
+    [homeSection, projectsSection, aboutSection].forEach(function (s) {
+      if (s) observer.observe(s);
+    });
+
+    window.addEventListener('catalogue:change', function () {
+      if (currentSection === projectsSection) updateFromCatalogue();
+    });
+
+    dotLinks.forEach(function (link) {
+      link.addEventListener('click', function (e) {
+        e.preventDefault();
+        var href = link.getAttribute('href');
+        var smoother = window.__smoothScroll;
+        var catalogue = window.__catalogue;
+
+        if (href.indexOf('#project-') === 0 && catalogue) {
+          if (smoother && projectsSection) {
+            smoother.scrollTo(window.scrollY + projectsSection.getBoundingClientRect().top);
+          }
+          catalogue.goTo(parseInt(href.replace('#project-0', ''), 10) - 1);
+          return;
+        }
+
+        var el = document.querySelector(href);
+        if (!el) return;
+        if (smoother) smoother.scrollTo(window.scrollY + el.getBoundingClientRect().top);
+        else el.scrollIntoView();
+      });
+    });
+  })();
+</script>
+
+<script>
+  // Lightbox: click a project thumbnail to open it full-size.
+  (function () {
+    var lightbox = document.getElementById('lightbox');
+    if (!lightbox) return;
+    var img = lightbox.querySelector('.lightbox-img');
+    var closeBtn = lightbox.querySelector('.lightbox-close');
+    var lastFocused = null;
+
+    function open(src, alt) {
+      img.src = src;
+      img.alt = alt || '';
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      lastFocused = document.activeElement;
+      closeBtn.focus();
+    }
+
+    function close() {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if (lastFocused && lastFocused.focus) lastFocused.focus();
+    }
+
+    document.querySelectorAll('.project-media').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var thumb = btn.querySelector('img');
+        if (thumb) open(thumb.currentSrc || thumb.src, thumb.alt);
+      });
+    });
+
+    closeBtn.addEventListener('click', close);
+    lightbox.addEventListener('click', function (e) {
+      if (e.target === lightbox) close();
+    });
+    window.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) close();
+    });
+
+    window.__lightboxOpen = function () { return lightbox.classList.contains('open'); };
+  })();
+</script>
+
+<script>
+  // Pollen trail: little flecks drift from the cursor as the bee moves.
+  // Desktop-with-a-real-pointer only; skipped for touch and reduced motion.
+  (function () {
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var pointerFine = window.matchMedia('(pointer: fine)').matches;
+    if (reducedMotion || !pointerFine) return;
+
+    var layer = document.querySelector('.pollen-layer');
+    if (!layer) return;
+
+    var lastSpawn = 0;
+    var minInterval = 45;
+
+    document.addEventListener('mousemove', function (e) {
+      var now = performance.now();
+      if (now - lastSpawn < minInterval) return;
+      lastSpawn = now;
+
+      var dot = document.createElement('span');
+      dot.className = 'pollen-dot';
+      var size = 3 + Math.random() * 3;
+      dot.style.width = size + 'px';
+      dot.style.height = size + 'px';
+      dot.style.left = (e.clientX + (Math.random() * 10 - 5)) + 'px';
+      dot.style.top = (e.clientY + (Math.random() * 10 - 5)) + 'px';
+      dot.style.setProperty('--pollen-dx', (Math.random() * 24 - 12) + 'px');
+      dot.style.setProperty('--pollen-dy', (14 + Math.random() * 16) + 'px');
+      layer.appendChild(dot);
+      dot.addEventListener('animationend', function () { dot.remove(); });
     });
   })();
 </script>
