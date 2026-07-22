@@ -451,21 +451,22 @@ nav a:hover {
   display: flex;
   align-items: center;
   gap: clamp(1.5rem, 6vw, 4rem);
-  padding: 1rem 1.5rem 5.5rem;
+  padding: 1rem 1.5rem 3.5rem;
   max-width: 1100px;
   margin: 0 auto;
   overflow-y: auto;
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: opacity 0.4s ease, visibility 0s linear 0.4s;
+  transform: translateX(0%);
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1), visibility 0s linear 0.5s;
 }
 
 .project-row.active {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transition: opacity 0.4s ease, visibility 0s linear 0s;
+  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1), visibility 0s linear 0s;
 }
 
 .project-row.reverse {
@@ -475,27 +476,20 @@ nav a:hover {
 @media (prefers-reduced-motion: reduce) {
   .project-row {
     transition: opacity 0.2s ease, visibility 0s linear 0.2s;
-    transform: none;
+    transform: none !important;
   }
   .project-row.active {
     transition: opacity 0.2s ease;
   }
 }
 
-/* ---------- Catalogue controls ---------- */
-
-.catalogue-controls {
-  flex: 0 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  padding: 1rem 0 1.5rem;
-  position: relative;
-  z-index: 5;
-}
+/* ---------- Catalogue controls: left/right arrows + counter ---------- */
 
 .catalogue-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 20;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -510,8 +504,16 @@ nav a:hover {
   transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
 
+.catalogue-arrow-left {
+  left: clamp(0.75rem, 3vw, 2rem);
+}
+
+.catalogue-arrow-right {
+  right: clamp(4.5rem, 9vw, 6.5rem);
+}
+
 .catalogue-arrow:hover:not(:disabled) {
-  transform: translateY(-2px);
+  transform: translateY(-50%) translateY(-2px);
   box-shadow: 0 8px 18px -8px rgba(60, 30, 20, 0.35);
 }
 
@@ -521,17 +523,22 @@ nav a:hover {
 }
 
 .catalogue-counter {
+  position: absolute;
+  left: 50%;
+  bottom: 1.1rem;
+  transform: translateX(-50%);
+  z-index: 5;
   font-family: var(--font-banner);
   font-size: 0.95rem;
   letter-spacing: 0.08em;
   color: var(--muted);
-  min-width: 3.4rem;
   text-align: center;
 }
 
 .project-flower {
   flex: 0 0 auto;
-  width: clamp(350px, 20vw, 400px);
+  height: clamp(240px, 32vh, 360px);
+  width: 40vh;
   overflow: visible;
   filter: drop-shadow(0 10px 22px rgba(60, 30, 20, 0.16));
 }
@@ -815,6 +822,10 @@ footer {
 
   .dot-nav {
     display: none;
+  }
+
+  .catalogue-arrow-right {
+    right: clamp(0.75rem, 3vw, 2rem);
   }
 
 }

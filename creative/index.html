@@ -87,6 +87,9 @@
 <section id="projects">
   <h2 class="section-title">Projets</h2>
 
+  <button type="button" class="catalogue-arrow catalogue-arrow-left" aria-label="Projet précédent">←</button>
+  <button type="button" class="catalogue-arrow catalogue-arrow-right" aria-label="Projet suivant">→</button>
+
   <div class="catalogue-viewport">
 
   <!-- 01 Scrappy — aster bleu -->
@@ -271,11 +274,7 @@
 
   </div>
 
-  <div class="catalogue-controls">
-    <button type="button" class="catalogue-arrow catalogue-arrow-up" aria-label="Projet précédent">↑</button>
-    <span class="catalogue-counter"><span class="catalogue-counter-current">01</span> / <span class="catalogue-counter-total">07</span></span>
-    <button type="button" class="catalogue-arrow catalogue-arrow-down" aria-label="Projet suivant">↓</button>
-  </div>
+  <span class="catalogue-counter"><span class="catalogue-counter-current">01</span> / <span class="catalogue-counter-total">07</span></span>
 
 </section>
 
@@ -393,10 +392,14 @@
           }
         }
 
+        // A plain mouse wheel only ever reports deltaY, so that remains the
+        // default trigger; a trackpad's horizontal two-finger swipe reports
+        // deltaX, which is honored too when it's the larger of the two.
+        var mainDelta = Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY;
         var atFirst = cat.getIndex() === 0;
         var atLast = cat.getIndex() === cat.count() - 1;
-        var down = e.deltaY > 0;
-        var up = e.deltaY < 0;
+        var down = mainDelta > 0;
+        var up = mainDelta < 0;
 
         if ((down && !atLast) || (up && !atFirst)) {
           e.preventDefault();
@@ -452,8 +455,8 @@
     var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     var index = Math.max(0, rows.findIndex(function (r) { return r.classList.contains('active'); }));
 
-    var upBtn = section.querySelector('.catalogue-arrow-up');
-    var downBtn = section.querySelector('.catalogue-arrow-down');
+    var leftBtn = section.querySelector('.catalogue-arrow-left');
+    var rightBtn = section.querySelector('.catalogue-arrow-right');
     var counterEl = section.querySelector('.catalogue-counter-current');
 
     function pad(n) { return n < 10 ? '0' + n : '' + n; }
@@ -483,8 +486,8 @@
       replayBloom(active);
       section.style.setProperty('--catalogue-tint', active.getAttribute('data-color') || 'transparent');
       if (counterEl) counterEl.textContent = pad(index + 1);
-      if (upBtn) upBtn.disabled = index === 0;
-      if (downBtn) downBtn.disabled = index === rows.length - 1;
+      if (leftBtn) leftBtn.disabled = index === 0;
+      if (rightBtn) rightBtn.disabled = index === rows.length - 1;
       window.dispatchEvent(new CustomEvent('catalogue:change', { detail: { index: index } }));
       // Warm the next/previous thumbnail in the background so arrow/wheel
       // navigation feels instant without front-loading every project's image.
@@ -497,35 +500,70 @@
     function goTo(i) {
       var next = Math.max(0, Math.min(rows.length - 1, i));
       if (next === index) return;
+      // direction: 1 = moving to a later project (slides in from the right),
+      // -1 = moving to an earlier one (slides in from the left).
+      var direction = next > index ? 1 : -1;
+      var outgoing = rows[index];
+      var incoming = rows[next];
       index = next;
-      render();
+
+      if (reducedMotion) {
+        render();
+        return;
+      }
+
+      // Instantly (no transition) pre-position the incoming row off to one
+      // side, before it's revealed, so the transition that follows animates
+      // it sliding in rather than popping in place.
+      incoming.style.transition = 'none';
+      incoming.style.transform = 'translateX(' + (direction * 100) + '%)';
+      void incoming.offsetWidth; // flush the above so it's committed as a real frame
+      incoming.style.transition = '';
+
+      requestAnimationFrame(function () {
+        render();
+        outgoing.style.transform = 'translateX(' + (-direction * 100) + '%)';
+        incoming.style.transform = '';
+      });
+
+      // Once settled, drop the outgoing row's inline transform so it starts
+      // fresh (centered) the next time it becomes the incoming row.
+      setTimeout(function () { outgoing.style.transform = ''; }, 560);
     }
 
-    if (upBtn) upBtn.addEventListener('click', function () { goTo(index - 1); });
-    if (downBtn) downBtn.addEventListener('click', function () { goTo(index + 1); });
+    if (leftBtn) leftBtn.addEventListener('click', function () { goTo(index - 1); });
+    if (rightBtn) rightBtn.addEventListener('click', function () { goTo(index + 1); });
 
     window.addEventListener('keydown', function (e) {
       if (window.__lightboxOpen && window.__lightboxOpen()) return;
       var smoother = window.__smoothScroll;
       if (!smoother || !smoother.isNearSection(section)) return;
-      if (e.key === 'ArrowDown') { e.preventDefault(); goTo(index + 1); }
-      else if (e.key === 'ArrowUp') { e.preventDefault(); goTo(index - 1); }
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); goTo(index + 1); }
+      else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); goTo(index - 1); }
     });
 
+    // Horizontal swipe steps through projects; a mostly-vertical drag is left
+    // alone so the page can still be scrolled normally on touch devices.
+    var touchStartX = null;
     var touchStartY = null;
-    section.addEventListener('touchstart', function (e) { touchStartY = e.touches[0].clientY; }, { passive: true });
+    section.addEventListener('touchstart', function (e) {
+      touchStartX = e.touches[0].clientX;
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
     section.addEventListener('touchmove', function (e) {
-      if (touchStartY === null || (window.__lightboxOpen && window.__lightboxOpen())) return;
+      if (touchStartX === null || (window.__lightboxOpen && window.__lightboxOpen())) return;
+      var dx = touchStartX - e.touches[0].clientX;
       var dy = touchStartY - e.touches[0].clientY;
-      if (Math.abs(dy) < 45) return;
-      var down = dy > 0;
-      if ((down && index < rows.length - 1) || (!down && index > 0)) {
+      if (Math.abs(dx) < 45 || Math.abs(dx) < Math.abs(dy)) return;
+      var forward = dx > 0;
+      if ((forward && index < rows.length - 1) || (!forward && index > 0)) {
         e.preventDefault();
-        goTo(index + (down ? 1 : -1));
+        goTo(index + (forward ? 1 : -1));
+        touchStartX = e.touches[0].clientX;
         touchStartY = e.touches[0].clientY;
       }
     }, { passive: false });
-    section.addEventListener('touchend', function () { touchStartY = null; }, { passive: true });
+    section.addEventListener('touchend', function () { touchStartX = null; touchStartY = null; }, { passive: true });
 
     window.__catalogue = {
       section: section,
