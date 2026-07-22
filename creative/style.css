@@ -24,11 +24,11 @@ html, body {
   cursor: url("images/cursor-bee.svg") 4 4, auto;
 }
 
-a, button, .btn, .dot-nav-item, #dsfr-link, .catalogue-arrow {
+a, button, .btn, .dot-nav-item, #dsfr-link {
   cursor: url("images/cursor-bee-hover.svg") 4 4, pointer;
 }
 
-a[disabled], button[disabled], .catalogue-arrow[disabled] {
+a[disabled], button[disabled] {
   cursor: url("images/cursor-bee.svg") 4 4, default;
 }
 
@@ -508,8 +508,10 @@ nav a:hover {
 }
 
 /* ---------- Projects catalogue ---------- */
-/* Only one project is visible at a time; up/down arrows (or wheel/swipe)
-   step through them. Background tint shifts to the active project's flower color. */
+/* A simple horizontal scroll-snap gallery: each project is a panel, wheel
+   scrolling is redirected to horizontal, and a flower blooms in as its
+   panel becomes centered. No arrows, no pagination state, no background tint —
+   the browser's own scroll position is the only state. */
 
 #projects {
   position: relative;
@@ -519,8 +521,6 @@ nav a:hover {
   display: flex;
   flex-direction: column;
   padding: 1.75rem 0 0;
-  background-color: color-mix(in srgb, var(--catalogue-tint, transparent) 14%, transparent);
-  transition: background-color 0.6s ease;
 }
 
 #projects .section-title {
@@ -528,115 +528,65 @@ nav a:hover {
   flex: 0 0 auto;
 }
 
-.catalogue-viewport {
-  position: relative;
+.catalogue-scroller {
+  --panel-w: min(88vw, 640px);
   flex: 1 1 auto;
   min-height: 0;
+  display: flex;
+  align-items: stretch;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  /* Matches the panel width so the first/last panels have enough run-up
+     room on either side to actually reach a centered scroll position —
+     without this, scrollToIndex()/snap can only get them partway there. */
+  padding-inline: calc((100% - var(--panel-w)) / 2);
 }
 
-/* ---------- Project rows ---------- */
+/* ---------- Project rows (now horizontal-scroll panels) ---------- */
 
 .project-row {
-  position: absolute;
-  inset: 0;
+  flex: 0 0 auto;
+  width: var(--panel-w);
+  scroll-snap-align: center;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: clamp(1.5rem, 6vw, 4rem);
-  padding: 1rem 1.5rem 3.5rem;
-  max-width: 1100px;
-  margin: 0 auto;
+  text-align: center;
+  gap: 0.75rem;
+  padding: 1rem 1.75rem 3rem;
   overflow-y: auto;
-  opacity: 0;
-  visibility: hidden;
-  pointer-events: none;
-  transform: translateX(0%);
-  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1), visibility 0s linear 0.5s;
 }
 
-.project-row.active {
-  opacity: 1;
-  visibility: visible;
-  pointer-events: auto;
-  transition: opacity 0.5s ease, transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1), visibility 0s linear 0s;
-}
-
-.project-row.reverse {
-  flex-direction: row-reverse;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .project-row {
-    transition: opacity 0.2s ease, visibility 0s linear 0.2s;
-    transform: none !important;
-  }
-  .project-row.active {
-    transition: opacity 0.2s ease;
-  }
-}
-
-/* ---------- Catalogue controls: left/right arrows + counter ---------- */
-
-.catalogue-arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 20;
+.catalogue-end {
+  flex: 0 0 auto;
+  width: min(30vw, 220px);
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2.6rem;
-  height: 2.6rem;
-  border-radius: 50%;
-  border: 1.5px solid var(--ink);
-  background: var(--surface);
-  backdrop-filter: blur(6px);
-  font-size: 1.1rem;
-  line-height: 1;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
-}
-
-.catalogue-arrow-left {
-  left: clamp(0.75rem, 3vw, 2rem);
-}
-
-.catalogue-arrow-right {
-  right: clamp(0.75rem, 3vw, 2rem);
-}
-
-.catalogue-arrow:hover:not(:disabled) {
-  transform: translateY(-50%) translateY(-2px);
-  box-shadow: 0 8px 18px -8px rgba(60, 30, 20, 0.35);
-}
-
-.catalogue-arrow:disabled {
-  opacity: 0.3;
-  pointer-events: none;
-}
-
-.catalogue-counter {
-  position: absolute;
-  left: 50%;
-  bottom: 3.75rem;
-  transform: translateX(-50%);
-  z-index: 5;
-  font-family: var(--font-banner);
-  font-size: 0.95rem;
-  letter-spacing: 0.08em;
+  scroll-snap-align: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
   color: var(--muted);
-  text-align: center;
+  opacity: 0.6;
 }
 
 .project-flower {
   flex: 0 0 auto;
-  height: clamp(240px, 32vh, 360px);
-  width: 40vh;
+  height: clamp(180px, 28vh, 300px);
+  width: auto;
   overflow: visible;
   filter: drop-shadow(0 10px 22px rgba(60, 30, 20, 0.16));
 }
 
 .project-content {
-  flex: 1 1 420px;
-  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 30rem;
+  margin: 0 auto;
 }
 
 .project-num {
@@ -655,6 +605,7 @@ nav a:hover {
 .project-tags {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 0.4rem;
   margin-bottom: 1rem;
 }
@@ -893,14 +844,11 @@ footer {
     text-align: center;
   }
 
-  .project-row,
-  .project-row.reverse,
   .about-content {
     flex-direction: column;
     text-align: center;
   }
 
-  .project-tags,
   .about-links {
     justify-content: center;
   }
