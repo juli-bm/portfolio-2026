@@ -256,7 +256,7 @@ nav a:hover {
 
 .hero-flower {
   flex: 0 0 auto;
-  width: clamp(200px, 17vw, 350px);
+  width: clamp(3500px, 17vw, 350px);
   overflow: visible;
   filter: drop-shadow(0 10px 20px rgba(60, 30, 20, 0.15));
 }
