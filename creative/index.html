@@ -299,6 +299,59 @@
 
 <script>
   (function () {
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Bloom-in: each flower's petals spring into place as it scrolls into view.
+    var flowers = document.querySelectorAll('.hero-flower, .project-flower');
+    if (flowers.length) {
+      var bloomObserver = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            entry.target.classList.toggle('bloomed', entry.isIntersecting || reducedMotion);
+          });
+        },
+        { threshold: 0.3, rootMargin: '0px 0px -8% 0px' }
+      );
+      flowers.forEach(function (flower) { bloomObserver.observe(flower); });
+    }
+
+    // Hero: the two flowers roll away to each side as the user scrolls past.
+    var hero = document.getElementById('home');
+    var heroFlowers = hero ? hero.querySelectorAll('.hero-flower') : [];
+    if (hero && heroFlowers.length === 2 && !reducedMotion) {
+      var leftFlower = heroFlowers[0];
+      var rightFlower = heroFlowers[1];
+      var ticking = false;
+
+      var updateRoll = function () {
+        ticking = false;
+        var distance = hero.offsetHeight;
+        var progress = Math.min(Math.max(window.scrollY / distance, 0), 1);
+        var shift = window.innerWidth * 0.45 * progress;
+        var spin = progress * 260;
+        var fade = 1 - progress;
+
+        leftFlower.style.transform = 'translateX(-' + shift + 'px) rotate(-' + spin + 'deg)';
+        leftFlower.style.opacity = fade;
+        rightFlower.style.transform = 'translateX(' + shift + 'px) rotate(' + spin + 'deg)';
+        rightFlower.style.opacity = fade;
+      };
+
+      var onScroll = function () {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(updateRoll);
+        }
+      };
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      updateRoll();
+    }
+  })();
+</script>
+
+<script>
+  (function () {
     var dotLinks = Array.prototype.slice.call(document.querySelectorAll('.dot-nav-item'));
     if (!dotLinks.length) return;
 

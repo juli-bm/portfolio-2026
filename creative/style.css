@@ -309,6 +309,65 @@ nav a:hover {
   border-color: rgba(43, 38, 32, 0.35);
 }
 
+/* ---------- Flower bloom-in animation ---------- */
+/* Technique from claude.ai/design "Scrolling flower bloom animation":
+   each petal path starts tiny/rotated/invisible and springs into place,
+   staggered per petal via nth-child transition-delay. */
+
+.hero-flower path,
+.project-flower path {
+  opacity: 0;
+  transform: scale(0.25) rotate(-8deg);
+  transform-box: fill-box;
+  transform-origin: 50% 50%;
+  transition: transform 1.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 1s ease-out;
+}
+
+.hero-flower.bloomed path,
+.project-flower.bloomed path {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+.hero-flower path:nth-child(1), .project-flower path:nth-child(1) { transition-delay: 0ms; }
+.hero-flower path:nth-child(2), .project-flower path:nth-child(2) { transition-delay: 55ms; }
+.hero-flower path:nth-child(3), .project-flower path:nth-child(3) { transition-delay: 110ms; }
+.hero-flower path:nth-child(4), .project-flower path:nth-child(4) { transition-delay: 165ms; }
+.hero-flower path:nth-child(5), .project-flower path:nth-child(5) { transition-delay: 220ms; }
+.hero-flower path:nth-child(6), .project-flower path:nth-child(6) { transition-delay: 275ms; }
+.hero-flower path:nth-child(7), .project-flower path:nth-child(7) { transition-delay: 330ms; }
+.hero-flower path:nth-child(8), .project-flower path:nth-child(8) { transition-delay: 385ms; }
+.hero-flower path:nth-child(9), .project-flower path:nth-child(9) { transition-delay: 440ms; }
+.hero-flower path:nth-child(10), .project-flower path:nth-child(10) { transition-delay: 495ms; }
+.hero-flower path:nth-child(11), .project-flower path:nth-child(11) { transition-delay: 550ms; }
+.hero-flower path:nth-child(12), .project-flower path:nth-child(12) { transition-delay: 605ms; }
+.hero-flower path:nth-child(13), .project-flower path:nth-child(13) { transition-delay: 660ms; }
+.hero-flower path:nth-child(14), .project-flower path:nth-child(14) { transition-delay: 715ms; }
+.hero-flower path:nth-child(15), .project-flower path:nth-child(15) { transition-delay: 770ms; }
+.hero-flower path:nth-child(16), .project-flower path:nth-child(16) { transition-delay: 825ms; }
+.hero-flower path:nth-child(17), .project-flower path:nth-child(17) { transition-delay: 880ms; }
+.hero-flower path:nth-child(18), .project-flower path:nth-child(18) { transition-delay: 935ms; }
+.hero-flower path:nth-child(19), .project-flower path:nth-child(19) { transition-delay: 990ms; }
+.hero-flower path:nth-child(20), .project-flower path:nth-child(20) { transition-delay: 1045ms; }
+.hero-flower path:nth-child(21), .project-flower path:nth-child(21) { transition-delay: 1100ms; }
+.hero-flower path:nth-child(22), .project-flower path:nth-child(22) { transition-delay: 1155ms; }
+.hero-flower path:nth-child(23), .project-flower path:nth-child(23) { transition-delay: 1210ms; }
+.hero-flower path:nth-child(24), .project-flower path:nth-child(24) { transition-delay: 1265ms; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-flower path,
+  .project-flower path {
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+}
+
+/* ---------- Hero flowers: roll away on scroll ---------- */
+
+.hero-flower {
+  will-change: transform, opacity;
+}
+
 /* ---------- Section headers ---------- */
 
 .section-title {
