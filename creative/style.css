@@ -458,16 +458,14 @@ nav a:hover {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transform: translateY(18px);
-  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s linear 0.5s;
+  transition: opacity 0.4s ease, visibility 0s linear 0.4s;
 }
 
 .project-row.active {
   opacity: 1;
   visibility: visible;
   pointer-events: auto;
-  transform: translateY(0);
-  transition: opacity 0.5s ease, transform 0.5s ease, visibility 0s linear 0s;
+  transition: opacity 0.4s ease, visibility 0s linear 0s;
 }
 
 .project-row.reverse {
