@@ -45,6 +45,14 @@
   </div>
 
   <a href="#projects" class="hero-flower-cta" aria-label="Découvrir mes projets">
+    <svg class="hero-bud" viewBox="0 0 220 320" fill="none" aria-hidden="true">
+      <path d="M138 316C132 270 118 245 128 214C130 208 133 203 136 198" stroke="#5E7A3E" stroke-width="7" stroke-linecap="round" fill="none"/>
+      <g transform="rotate(-24 105 130)">
+        <ellipse cx="105" cy="130" rx="46" ry="92" fill="#7FA05B"/>
+        <ellipse cx="105" cy="128" rx="33" ry="80" fill="#5E7A3E"/>
+        <path d="M88 54C86 40 94 28 105 24C116 28 124 40 122 54C119 74 112 88 105 88C98 88 91 74 88 54Z" fill="#F05C3B"/>
+      </g>
+    </svg>
     <svg class="hero-flower" viewBox="0 0 300 276" fill="none" aria-hidden="true">
       <path d="M77.8937 15.4853C78.8181 14.5117 79.4927 10.284 80.2499 8.67989C84.4308 -0.178398 95.5581 -2.18676 103.561 2.33571C105.311 3.32461 106.712 4.99432 108.609 5.74326C111.856 5.32479 115.836 4.75358 119.054 4.60494C137.798 3.73897 156.142 7.97853 171.15 19.8889C175.267 23.1576 183.018 30.3546 185.516 35.1157C186.875 34.7963 189.923 33.0255 191.351 32.3211C194.087 30.95 196.912 29.7717 199.805 28.7944C218.758 22.3146 239.531 24.3789 256.889 34.467C276.176 45.5163 290.753 65.9958 296.66 87.2797C303.629 112.39 300.419 141.404 280.103 159.162C279.629 159.576 279.291 160.138 278.873 160.541C279.265 161.802 280.193 163.341 280.781 164.572C281.788 166.717 282.734 168.891 283.615 171.092C287.844 181.787 289.593 195.836 284.478 206.494C280.418 216.206 271.163 217.467 263.171 222.776C248.663 232.412 237.875 247.42 223.543 257.33C200.021 273.596 164.846 282.607 137.878 270.213C134.229 268.536 125.346 262.428 123.635 259.174C122.77 259.011 121.452 259.598 120.621 259.941C118.67 259.929 116.006 261.171 114.423 262.257C102.84 266.33 87.2492 269.658 75.5674 264.492C55.9149 255.8 43.0388 233.015 30.1369 216.72C21.8695 206.278 13.5653 196.3 6.96076 184.949C5.34883 182.164 3.94852 179.258 2.7719 176.258C2.12497 174.6 1.47329 172.541 0.792519 170.973L0.737589 170.848C0.124316 166.918 -0.269507 163.224 0.221212 159.233C0.869673 153.959 1.98129 149.434 1.97505 144.045C3.86257 138.92 7.06379 134.933 10.9227 131.108C12.0386 130.002 14.1038 129.039 15.0933 127.656C14.8513 125.532 13.6459 120.986 13.1573 118.412C11.2368 108.292 10.2722 94.8272 12.2743 84.7021C16.3264 64.2106 39.3216 39.204 56.1008 27.8611C58.7384 25.343 59.1622 22.6849 63.5594 22.4055L64.8119 22.325C68.0666 20.0753 74.289 17.021 77.8937 15.4853Z" fill="#FF8468"/>
       <path d="M161.642 184.736C163.101 185.091 164.569 185.403 166.045 185.676C179.651 188.19 198.485 184.85 212.24 182.9C222.126 181.5 234.237 179.505 243.905 177.063C249.474 175.687 254.931 173.889 260.233 171.683C267.53 168.72 272.607 164.951 278.873 160.541C279.265 161.802 280.193 163.341 280.781 164.572C281.788 166.717 282.734 168.891 283.615 171.091C287.844 181.787 289.593 195.836 284.478 206.493C280.418 216.206 271.163 217.467 263.171 222.776C248.663 232.411 237.875 247.42 223.542 257.33C200.021 273.595 164.846 282.606 137.878 270.213C134.229 268.535 125.346 262.428 123.635 259.174C124.435 258.368 125.983 257.843 127.03 257.357C140.473 251.234 158.072 241.192 163.949 226.723C168.614 215.234 166.457 195.944 161.642 184.736Z" fill="#F05C3B"/>
@@ -408,14 +416,43 @@
     window.__smoothScroll = { scrollTo: scrollTo, isFillingViewport: isFillingViewport, isNearSection: isNearSection };
 
     // Animate in-page anchor links (top nav, hero buttons, scroll hint) through
-    // the same system. Dot-nav links are handled separately (they also drive the catalogue).
+    // the same system. Dot-nav and the hero flower are handled separately (see
+    // their own scripts) since both need extra behavior beyond a plain jump.
     document.addEventListener('click', function (e) {
       var link = e.target.closest && e.target.closest('a[href^="#"]');
-      if (!link || link.classList.contains('dot-nav-item')) return;
+      if (!link || link.classList.contains('dot-nav-item') || link.classList.contains('hero-flower-cta')) return;
       var el = document.getElementById(link.getAttribute('href').slice(1));
       if (!el) return;
       e.preventDefault();
       scrollTo(window.scrollY + el.getBoundingClientRect().top);
+    });
+  })();
+</script>
+
+<script>
+  // Hero flower: bud (default) -> partial bloom (hover/focus, pure CSS) ->
+  // full bloom on click, held briefly so the user sees it fully open before
+  // the page smooth-scrolls to the projects catalogue.
+  (function () {
+    var cta = document.querySelector('.hero-flower-cta');
+    if (!cta) return;
+    var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    cta.addEventListener('click', function (e) {
+      if (cta.classList.contains('clicked')) return;
+      e.preventDefault();
+      cta.classList.add('clicked');
+
+      var target = document.getElementById('projects');
+      var navigate = function () {
+        if (!target) return;
+        var smoother = window.__smoothScroll;
+        if (smoother) smoother.scrollTo(window.scrollY + target.getBoundingClientRect().top);
+        else target.scrollIntoView();
+      };
+
+      if (reducedMotion) navigate();
+      else setTimeout(navigate, 550);
     });
   })();
 </script>
@@ -557,12 +594,14 @@
   (function () {
     var reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Hero: the flower rolls away to the right as the user scrolls past.
-    // (It no longer auto-blooms on load/scroll — blooming is now a pure-CSS
-    // :hover/:focus-visible effect on .hero-flower-cta, see style.css.)
+    // Hero: the bud/flower rolls away to the right as the user scrolls past.
+    // Rolls the whole .hero-flower-cta wrapper (not just .hero-flower) since
+    // the bud — not the flower — is what's actually visible by default;
+    // blooming itself is a separate pure-CSS :hover/:focus-visible/.clicked
+    // effect, see style.css.
     var hero = document.getElementById('home');
-    var heroFlower = hero ? hero.querySelector('.hero-flower') : null;
-    if (hero && heroFlower && !reducedMotion) {
+    var heroFlowerCta = hero ? hero.querySelector('.hero-flower-cta') : null;
+    if (hero && heroFlowerCta && !reducedMotion) {
       var ticking = false;
 
       var updateRoll = function () {
@@ -573,8 +612,8 @@
         var spin = progress * 260;
         var fade = 1 - progress;
 
-        heroFlower.style.transform = 'translateX(' + shift + 'px) rotate(' + spin + 'deg)';
-        heroFlower.style.opacity = fade;
+        heroFlowerCta.style.transform = 'translateX(' + shift + 'px) rotate(' + spin + 'deg)';
+        heroFlowerCta.style.opacity = fade;
       };
 
       var onScroll = function () {

@@ -6,6 +6,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  scrollbar-width: thin;
 }
 
 :root {
@@ -299,10 +300,23 @@ nav a:hover {
 }
 
 .hero-flower {
-  flex: 0 0 auto;
+  grid-area: 1 / 1;
   width: clamp(350px, 100vw, 500px);
   overflow: visible;
   filter: drop-shadow(0 10px 20px rgba(60, 30, 20, 0.15));
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.hero-bud {
+  grid-area: 1 / 1;
+  width: clamp(230px, 66vw, 330px);
+  overflow: visible;
+  filter: drop-shadow(0 10px 20px rgba(60, 30, 20, 0.15));
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+  transform-origin: 50% 85%;
+  transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
 .hero-text h1 {
@@ -320,10 +334,48 @@ nav a:hover {
 
 .hero-flower-cta {
   position: relative;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
   flex: 0 0 auto;
+}
+
+/* State 2 — hover/focus: the bud fades away as the flower opens partway. */
+.hero-flower-cta:hover .hero-bud,
+.hero-flower-cta:focus-visible .hero-bud {
+  opacity: 0;
+  transform: scale(0.9) rotate(8deg);
+}
+
+.hero-flower-cta:hover .hero-flower,
+.hero-flower-cta:focus-visible .hero-flower {
+  opacity: 1;
+}
+
+.hero-flower-cta:hover .hero-flower path,
+.hero-flower-cta:focus-visible .hero-flower path {
+  opacity: 0.6;
+  transform: scale(0.5) rotate(-6deg);
+}
+
+/* State 3 — click: full bloom, held for a beat before the page scrolls away. */
+.hero-flower-cta.clicked .hero-bud {
+  opacity: 0;
+}
+
+.hero-flower-cta.clicked .hero-flower {
+  opacity: 1;
+}
+
+.hero-flower-cta.clicked .hero-flower path {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-bud,
+  .hero-flower {
+    transition-duration: 0.01ms !important;
+  }
 }
 
 .hero-flower-hint {
@@ -351,12 +403,6 @@ nav a:hover {
 .hero-flower-cta:focus-visible .hero-flower-hint {
   opacity: 1;
   transform: scale(1);
-}
-
-.hero-flower-cta:hover .hero-flower path,
-.hero-flower-cta:focus-visible .hero-flower path {
-  opacity: 1;
-  transform: scale(1) rotate(0deg);
 }
 
 @media (prefers-reduced-motion: reduce) {
